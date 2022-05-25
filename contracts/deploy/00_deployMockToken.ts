@@ -12,10 +12,8 @@ import {
   errDeployPrint,
 } from "../helper/deployHelper";
 
-const deployMockToken: DeployFunction = async (
-  hre: HardhatRuntimeEnvironment
-) => {
-  const { deploy, log } = deployments;
+const deployMockToken: DeployFunction = async () => {
+  const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
   const chainId: number | undefined = network.config.chainId;
 
