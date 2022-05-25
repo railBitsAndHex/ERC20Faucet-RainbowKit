@@ -6,6 +6,12 @@ import {
 } from "hardhat-deploy/types";
 
 import { getNamedAccounts, deployments, network } from "hardhat";
+import {
+  deploymentHeader,
+  deploySuccessPrint,
+  errDeployPrint,
+} from "../helper/deployHelper";
+
 const deployMockToken: DeployFunction = async (
   hre: HardhatRuntimeEnvironment
 ) => {
@@ -19,25 +25,7 @@ const deployMockToken: DeployFunction = async (
     log: true,
     args: [],
   };
-  const deploymentHeader = (
-    chainId: number | undefined,
-    deployer: string,
-    contractName: string
-  ) => {
-    log(`\n##################################################\n\nDEPLOYMENT\n`);
-    log(
-      `Current Network: Localhost\nChainId: ${chainId}\nDeployer: ${deployer}`
-    );
-    log(`Preparing for deployment of ${contractName}.sol...\n`);
-  };
-  const deploySuccessPrint = (
-    deployment: DeployResult,
-    contractName: string
-  ) => {
-    log(`\n${contractName}.sol has been deployed!\n`);
-    log(`Tx Hash: ${deployment.transactionHash}`);
-    log(`MockToken.sol Contract Address: ${deployment.address}\n\n`);
-  };
+
   switch (chainId) {
     case 31337:
       deploymentHeader(chainId, deployer, "MockToken");
@@ -46,13 +34,10 @@ const deployMockToken: DeployFunction = async (
           "MockToken",
           mockTokenDeployOptions
         );
-
         deploySuccessPrint(MockTokenDeployment, "MockToken");
-        log(`####################################################\n`);
       } catch (err: unknown) {
         if (err instanceof Error) {
-          console.log(err.message);
-          log(`\n####################################################\n`);
+          errDeployPrint(err);
         }
       }
       break;
