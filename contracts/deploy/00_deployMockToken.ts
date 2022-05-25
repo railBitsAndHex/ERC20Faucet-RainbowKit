@@ -1,5 +1,9 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { DeployFunction, DeployOptions } from "hardhat-deploy/types";
+import {
+  DeployFunction,
+  DeployOptions,
+  DeployResult,
+} from "hardhat-deploy/types";
 
 import { getNamedAccounts, deployments, network } from "hardhat";
 const deployMockToken: DeployFunction = async (
@@ -15,27 +19,35 @@ const deployMockToken: DeployFunction = async (
     log: true,
     args: [],
   };
+  const deploymentHeader = (
+    chainId: number | undefined,
+    deployer: string,
+    contractName: string
+  ) => {
+    log(`\n##################################################\n\nDEPLOYMENT\n`);
+    log(
+      `Current Network: Localhost\nChainId: ${chainId}\nDeployer: ${deployer}`
+    );
+    log(`Preparing for deployment of ${contractName}.sol...\n`);
+  };
+  const deploySuccessPrint = (
+    deployment: DeployResult,
+    contractName: string
+  ) => {
+    log(`\n${contractName}.sol has been deployed!\n`);
+    log(`Tx Hash: ${deployment.transactionHash}`);
+    log(`MockToken.sol Contract Address: ${deployment.address}\n\n`);
+  };
   switch (chainId) {
     case 31337:
-      log(
-        `\n##################################################\n\nDEPLOYMENT\n`
-      );
-      log(
-        `Current Network: Localhost\nChainId: ${chainId}\nDeployer: ${deployer}`
-      );
-      log(`Preparing for deployment of MockToken.sol...\n`);
-
+      deploymentHeader(chainId, deployer, "MockToken");
       try {
         const MockTokenDeployment = await deploy(
           "MockToken",
           mockTokenDeployOptions
         );
 
-        log("\nMockToken contract has been deployed!\n");
-        log(`Tx Hash: ${MockTokenDeployment.transactionHash}`);
-        log(
-          `MockToken.sol Contract Address: ${MockTokenDeployment.address}\n\n`
-        );
+        deploySuccessPrint(MockTokenDeployment, "MockToken");
         log(`####################################################\n`);
       } catch (err: unknown) {
         if (err instanceof Error) {
