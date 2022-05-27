@@ -5,6 +5,7 @@ import {
 } from "hardhat-deploy/types";
 
 const deploymentHeader = (
+  networkName: string,
   chainId: number | undefined,
   deployer: string,
   contractName: string
@@ -13,7 +14,7 @@ const deploymentHeader = (
     `\n##################################################\n\nDEPLOYMENT\n`
   );
   console.log(
-    `Current Network: Localhost\nChainId: ${chainId}\nDeployer: ${deployer}`
+    `Current Network: ${networkName}\nChainId: ${chainId}\nDeployer: ${deployer}`
   );
   console.log(`Preparing for deployment of ${contractName}.sol...\n`);
 };

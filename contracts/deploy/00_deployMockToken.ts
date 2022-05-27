@@ -26,7 +26,92 @@ const deployMockToken: DeployFunction = async () => {
 
   switch (chainId) {
     case 31337:
-      deploymentHeader(chainId, deployer, "MockToken");
+      deploymentHeader("Localhost", chainId, deployer, "MockToken");
+      try {
+        const MockTokenDeployment = await deploy(
+          "MockToken",
+          mockTokenDeployOptions
+        );
+        deploySuccessPrint(MockTokenDeployment, "MockToken");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          errDeployPrint(err);
+        }
+      }
+      break;
+    case 5:
+      deploymentHeader("ETH Goerli Testnet", chainId, deployer, "MockToken");
+      try {
+        const MockTokenDeployment = await deploy(
+          "MockToken",
+          mockTokenDeployOptions
+        );
+        deploySuccessPrint(MockTokenDeployment, "MockToken");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          errDeployPrint(err);
+        }
+      }
+      break;
+    case 80001:
+      deploymentHeader(
+        "Polygon Mumbai Testnet",
+        chainId,
+        deployer,
+        "MockToken"
+      );
+      try {
+        const MockTokenDeployment = await deploy(
+          "MockToken",
+          mockTokenDeployOptions
+        );
+        deploySuccessPrint(MockTokenDeployment, "MockToken");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          errDeployPrint(err);
+        }
+      }
+      break;
+    case 421611:
+      deploymentHeader("Arbitrum Rinkeby", chainId, deployer, "MockToken");
+      try {
+        const MockTokenDeployment = await deploy(
+          "MockToken",
+          mockTokenDeployOptions
+        );
+        deploySuccessPrint(MockTokenDeployment, "MockToken");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          errDeployPrint(err);
+        }
+      }
+      break;
+    case 1287:
+      deploymentHeader(
+        "Moonbase Testnet (Moonbeam Testnet)",
+        chainId,
+        deployer,
+        "MockToken"
+      );
+      try {
+        const MockTokenDeployment = await deploy(
+          "MockToken",
+          mockTokenDeployOptions
+        );
+        deploySuccessPrint(MockTokenDeployment, "MockToken");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          errDeployPrint(err);
+        }
+      }
+      break;
+    case 43113:
+      deploymentHeader(
+        "Avalanche Fuji Testnet",
+        chainId,
+        deployer,
+        "MockToken"
+      );
       try {
         const MockTokenDeployment = await deploy(
           "MockToken",

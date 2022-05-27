@@ -7,6 +7,6 @@ contract MockToken is ERC20 {
     constructor() ERC20("mockToken", "MT") {}
 
     function mint() external {
-        _mint(msg.sender, 10000);
+        _mint(msg.sender, 10000000000000000000000);
     }
 }
