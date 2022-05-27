@@ -124,6 +124,20 @@ const deployMockToken: DeployFunction = async () => {
         }
       }
       break;
+    case parseInt("0xf2a"):
+      deploymentHeader("Fantom Testnet", chainId, deployer, "MockToken");
+      try {
+        const MockTokenDeployment = await deploy(
+          "MockToken",
+          mockTokenDeployOptions
+        );
+        deploySuccessPrint(MockTokenDeployment, "MockToken");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          errDeployPrint(err);
+        }
+      }
+      break;
 
     default:
       break;

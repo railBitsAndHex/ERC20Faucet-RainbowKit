@@ -38,6 +38,7 @@ const MUMBAI_URL: string = process.env.ALCHEMY_MUMBAI_RPC_URL!;
 const ARBRINKEBY_URL: string = process.env.ALCHEMY_ARBRINKEBY_RPC_URL!;
 const MOONBASE_URL: string = "https://rpc.api.moonbase.moonbeam.network";
 const FUJI_URL: string = "https://api.avax-test.network/ext/bc/C/rpc";
+const FANTOM_TESTNET_URL: string = "https://rpc.testnet.fantom.network/";
 const config: HardhatUserConfig = {
   solidity: {
     version: "0.8.4",
@@ -71,7 +72,7 @@ const config: HardhatUserConfig = {
       chainId: 421611,
       accounts: accounts.length !== 0 ? accounts : [],
       url: ARBRINKEBY_URL !== undefined ? ARBRINKEBY_URL : "",
-      gas: 7000000,
+      gas: 6000000,
       gasPrice: 200000000,
     },
     moonbase: {
@@ -83,6 +84,11 @@ const config: HardhatUserConfig = {
       chainId: 43113,
       accounts: accounts.length !== 0 ? accounts : [],
       url: FUJI_URL,
+    },
+    ftmtestnet: {
+      chainId: parseInt("0xfa2"),
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: FANTOM_TESTNET_URL,
     },
   },
   gasReporter: {
