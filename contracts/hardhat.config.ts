@@ -36,6 +36,7 @@ const accounts: Array<string> = [privateKey1, privateKey2, privateKey3];
 const GOERLI_URL: string = process.env.ALCHEMY_GOERLI_RPC_URL!;
 const MUMBAI_URL: string = process.env.ALCHEMY_MUMBAI_RPC_URL!;
 const ARBRINKEBY_URL: string = process.env.ALCHEMY_ARBRINKEBY_RPC_URL!;
+const OPTIMISMKOVAN_URL: string = process.env.ALCHEMY_OPTIMISMKOVAN_RPC_URL!;
 const MOONBASE_URL: string = "https://rpc.api.moonbase.moonbeam.network";
 const FUJI_URL: string = "https://api.avax-test.network/ext/bc/C/rpc";
 const FANTOM_TESTNET_URL: string = "https://rpc.testnet.fantom.network/";
@@ -92,7 +93,7 @@ const config: HardhatUserConfig = {
       url: FUJI_URL,
     },
     ftmtestnet: {
-      chainId: parseInt("0xfa2"),
+      chainId: 4002,
       accounts: accounts.length !== 0 ? accounts : [],
       url: FANTOM_TESTNET_URL,
     },
