@@ -138,6 +138,48 @@ const deployMockToken: DeployFunction = async () => {
         }
       }
       break;
+    case 338:
+      deploymentHeader("Cronos Testnet", chainId, deployer, "MockToken");
+      try {
+        const MockTokenDeployment = await deploy(
+          "MockToken",
+          mockTokenDeployOptions
+        );
+        deploySuccessPrint(MockTokenDeployment, "MockToken");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          errDeployPrint(err);
+        }
+      }
+      break;
+    case 200101:
+      deploymentHeader("Milkomeda C1 Testnet", chainId, deployer, "MockToken");
+      try {
+        const MockTokenDeployment = await deploy(
+          "MockToken",
+          mockTokenDeployOptions
+        );
+        deploySuccessPrint(MockTokenDeployment, "MockToken");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          errDeployPrint(err);
+        }
+      }
+      break;
+    case 97:
+      deploymentHeader("BNBCHAIN Testnet", chainId, deployer, "MockToken");
+      try {
+        const MockTokenDeployment = await deploy(
+          "MockToken",
+          mockTokenDeployOptions
+        );
+        deploySuccessPrint(MockTokenDeployment, "MockToken");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          errDeployPrint(err);
+        }
+      }
+      break;
 
     default:
       break;

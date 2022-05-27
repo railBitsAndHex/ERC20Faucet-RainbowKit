@@ -39,6 +39,11 @@ const ARBRINKEBY_URL: string = process.env.ALCHEMY_ARBRINKEBY_RPC_URL!;
 const MOONBASE_URL: string = "https://rpc.api.moonbase.moonbeam.network";
 const FUJI_URL: string = "https://api.avax-test.network/ext/bc/C/rpc";
 const FANTOM_TESTNET_URL: string = "https://rpc.testnet.fantom.network/";
+const CRO_TESTNET_URL: string = "https://evm-t3.cronos.org";
+const MILKOMEDA_TESTNET_URL: string =
+  "https://rpc-devnet-cardano-evm.c1.milkomeda.com/";
+const BNBCHAIN_TESTNET_URL: string =
+  "https://data-seed-prebsc-1-s1.binance.org:8545/";
 const config: HardhatUserConfig = {
   solidity: {
     version: "0.8.4",
@@ -89,6 +94,21 @@ const config: HardhatUserConfig = {
       chainId: parseInt("0xfa2"),
       accounts: accounts.length !== 0 ? accounts : [],
       url: FANTOM_TESTNET_URL,
+    },
+    crotestnet: {
+      chainId: 338,
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: CRO_TESTNET_URL,
+    },
+    tnetmilkomeda: {
+      chainId: 200101,
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: MILKOMEDA_TESTNET_URL,
+    },
+    tbnbchain: {
+      chainId: 97,
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: BNBCHAIN_TESTNET_URL,
     },
   },
   gasReporter: {
