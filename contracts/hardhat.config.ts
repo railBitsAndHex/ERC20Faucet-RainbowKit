@@ -4,6 +4,9 @@ import { HardhatUserConfig, task } from "hardhat/config";
 import "@nomiclabs/hardhat-etherscan";
 import "@nomiclabs/hardhat-waffle";
 import "@typechain/hardhat";
+import "@nomiclabs/hardhat-ethers";
+import "hardhat-deploy-ethers";
+import "hardhat-deploy";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 
@@ -22,13 +25,91 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
+console.log(process.env.PRIVATE_KEY1);
+const privateKey1: string = process.env.PRIVATE_KEY1!;
+const privateKey2: string = process.env.PRIVATE_KEY2!;
+const privateKey3: string = process.env.PRIVATE_KEY3!;
+
+const accounts: Array<string> = [privateKey1, privateKey2, privateKey3];
+
+// RPC URLS
+const GOERLI_URL: string = process.env.ALCHEMY_GOERLI_RPC_URL!;
+const MUMBAI_URL: string = process.env.ALCHEMY_MUMBAI_RPC_URL!;
+const ARBRINKEBY_URL: string = process.env.ALCHEMY_ARBRINKEBY_RPC_URL!;
+const MOONBASE_URL: string = "https://rpc.api.moonbase.moonbeam.network";
+const FUJI_URL: string = "https://api.avax-test.network/ext/bc/C/rpc";
+const FANTOM_TESTNET_URL: string = "https://rpc.testnet.fantom.network/";
+const CRO_TESTNET_URL: string = "https://evm-t3.cronos.org";
+const MILKOMEDA_TESTNET_URL: string =
+  "https://rpc-devnet-cardano-evm.c1.milkomeda.com/";
+const BNBCHAIN_TESTNET_URL: string =
+  "https://data-seed-prebsc-1-s1.binance.org:8545/";
+
 const config: HardhatUserConfig = {
-  solidity: "0.8.4",
+  solidity: {
+    version: "0.8.4",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
+    },
+  },
+  defaultNetwork: "hardhat",
   networks: {
-    ropsten: {
-      url: process.env.ROPSTEN_URL || "",
-      accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    hardhat: {
+      chainId: 31337,
+    },
+    localhost: {
+      chainId: 31337,
+      accounts: accounts.length !== 0 ? accounts : [],
+    },
+    goerli: {
+      chainId: 5,
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: GOERLI_URL !== undefined ? GOERLI_URL : "",
+    },
+    mumbai: {
+      chainId: 80001,
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: MUMBAI_URL !== undefined ? MUMBAI_URL : "",
+    },
+    arbRinkeby: {
+      chainId: 421611,
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: ARBRINKEBY_URL !== undefined ? ARBRINKEBY_URL : "",
+      gas: 6000000,
+      gasPrice: 200000000,
+    },
+    moonbase: {
+      chainId: 1287,
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: MOONBASE_URL,
+    },
+    fuji: {
+      chainId: 43113,
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: FUJI_URL,
+    },
+    ftmtestnet: {
+      chainId: parseInt("0xfa2"),
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: FANTOM_TESTNET_URL,
+    },
+    crotestnet: {
+      chainId: 338,
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: CRO_TESTNET_URL,
+    },
+    tnetmilkomeda: {
+      chainId: 200101,
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: MILKOMEDA_TESTNET_URL,
+    },
+    tbnbchain: {
+      chainId: 97,
+      accounts: accounts.length !== 0 ? accounts : [],
+      url: BNBCHAIN_TESTNET_URL,
     },
   },
   gasReporter: {
@@ -37,6 +118,18 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
+  },
+  namedAccounts: {
+    deployer: {
+      default: 0,
+      1: 0,
+    },
+    secondary: {
+      default: 2,
+    },
+  },
+  mocha: {
+    timeout: 200000, // 200 seconds max for running tests
   },
 };
 
