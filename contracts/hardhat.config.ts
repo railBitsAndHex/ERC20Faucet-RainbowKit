@@ -44,6 +44,7 @@ const MILKOMEDA_TESTNET_URL: string =
   "https://rpc-devnet-cardano-evm.c1.milkomeda.com/";
 const BNBCHAIN_TESTNET_URL: string =
   "https://data-seed-prebsc-1-s1.binance.org:8545/";
+
 const config: HardhatUserConfig = {
   solidity: {
     version: "0.8.4",
