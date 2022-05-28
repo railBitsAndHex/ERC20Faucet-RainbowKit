@@ -124,7 +124,7 @@ const deployMockToken: DeployFunction = async () => {
         }
       }
       break;
-    case parseInt("0xf2a"):
+    case 4002:
       deploymentHeader("Fantom Testnet", chainId, deployer, "MockToken");
       try {
         const MockTokenDeployment = await deploy(
