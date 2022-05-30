@@ -15,7 +15,8 @@ const moonbaseChain: Chain = {
     blockExplorers: {
         default: {name:'MoonScan', url: "https://moonbase.moonscan.io/"}
     },
-    testnet: true
+    testnet: true,
+    iconUrl:"https://assets.coingecko.com/coins/images/22459/small/glmr.png?1641880985"
 }
 const avaxFujiChain: Chain = {
     id: 43_113,
@@ -49,7 +50,8 @@ const ftmTestChain: Chain = {
     blockExplorers: {
         default: {name:'FtmScan', url: "https://testnet.ftmscan.com/"}
     },
-    testnet: true
+    testnet: true,
+    iconUrl:"https://assets.coingecko.com/coins/images/4001/small/Fantom.png?1558015016"
 }
 const cronosTestChain: Chain = {
     id: 338,
@@ -66,7 +68,8 @@ const cronosTestChain: Chain = {
     blockExplorers: {
         default: {name:'CronosScan', url: "https://testnet.cronoscan.com"}
     },
-    testnet: true
+    testnet: true,
+    iconUrl:"https://assets.coingecko.com/coins/images/7310/small/oCw2s3GI_400x400.jpeg?1645172042"
 }
 const milkomedaTestChain: Chain = {
     id: 200_101,
@@ -83,7 +86,8 @@ const milkomedaTestChain: Chain = {
     blockExplorers: {
         default: {name:'BlockScout', url: "https://explorer-devnet-cardano-evm.c1.milkomeda.com"}
     },
-    testnet: true
+    testnet: true,
+    iconUrl:"https://pbs.twimg.com/profile_images/1450592148504526850/8DbMgW83_400x400.jpg"
 }
 const bnbTestChain: Chain = {
     id: 97,
@@ -95,12 +99,13 @@ const bnbTestChain: Chain = {
         symbol: "tBNB"
     }, 
     rpcUrls: {
-        default: "https://data-seed-prebsc-1-s1.binance.org:8545/"
+        default: "https://data-seed-prebsc-1-s1.binance.org:8545"
     },
     blockExplorers: {
         default: {name:'BscScan', url: "https://testnet.bscscan.com/"}
     },
-    testnet: true
+    testnet: true,
+    iconUrl:"https://assets.coingecko.com/coins/images/825/small/bnb-icon2_2x.png?1644979850"
 }
 
 export {moonbaseChain, avaxFujiChain, ftmTestChain, cronosTestChain, milkomedaTestChain, bnbTestChain}
