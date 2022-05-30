@@ -1,8 +1,4 @@
-import {
-  DeployFunction,
-  DeployOptions,
-  DeployResult,
-} from "hardhat-deploy/types";
+import { DeployResult } from "hardhat-deploy/types";
 
 const deploymentHeader = (
   networkName: string,

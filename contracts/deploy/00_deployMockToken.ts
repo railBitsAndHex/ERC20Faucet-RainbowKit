@@ -10,7 +10,7 @@ import {
   deploymentHeader,
   deploySuccessPrint,
   errDeployPrint,
-} from "../helper/deployHelper";
+} from "../utils/deployUtils";
 
 const deployMockToken: DeployFunction = async () => {
   const { deploy } = deployments;
