@@ -26,6 +26,11 @@ ___
 | `BNBChain Testnet`   | `0x53cE04651834cD8db7bd618C0ce96B72aEA1bDf9`        |
 --- 
 
+**Cloning the repository**
+
+````
+git clone https://github.com/railBitsAndHex/ERC20Faucet-RainbowKit.git
+````
 
 **Client Side Start Up**
 ````
