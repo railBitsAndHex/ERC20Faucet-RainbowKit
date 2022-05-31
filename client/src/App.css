@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family:url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 }
 
 .App-logo {
@@ -12,7 +13,12 @@
     animation: App-logo-float infinite 3s ease-in-out;
   }
 }
-
+.app-section {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .App-header {
   min-height: 100vh;
   display: flex;

@@ -1,5 +1,5 @@
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
-import { getDefaultWallets } from "@rainbow-me/rainbowkit";
+import { connectorsForWallets, wallet } from "@rainbow-me/rainbowkit";
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import {jsonRpcProvider} from 'wagmi/providers/jsonRpc'
 import { publicProvider } from 'wagmi/providers/public';
@@ -13,10 +13,10 @@ const {chains, provider} = configureChains(
     jsonRpcProvider({ rpc: chain => ({ http: chain.rpcUrls.default }) }), publicProvider()]
 )
 
-const {connectors} = getDefaultWallets({
-    appName: 'ERC20 MOCKTOKEN FAUCET',
-    chains
-})
+const connectors = connectorsForWallets([{
+    groupName: "ERC20 Faucet",
+    wallets:[wallet.metaMask({chains})]
+}])
 
 const wagmiClient = createClient({
     autoConnect: true, connectors, provider

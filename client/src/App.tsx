@@ -3,16 +3,22 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import "./App.css";
 import { WagmiConfig } from "wagmi";
-import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
+import {
+  RainbowKitProvider,
+  darkTheme,
+  midnightTheme,
+} from "@rainbow-me/rainbowkit";
 import { wagmiClient, chains } from "./configs/config";
-import ConnectBtn from "./components/ConnectBtn";
+import Intro from "./components/Intro";
+import Nvbar from "./components/Nvbar";
+
 function App() {
   return (
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains} coolMode>
-        <section>
-          <h1>ERC20 MockToken Faucet</h1>
-          <ConnectBtn />
+      <RainbowKitProvider chains={chains} showRecentTransactions>
+        <Nvbar />
+        <section className="app-section">
+          <Intro />
         </section>
       </RainbowKitProvider>
     </WagmiConfig>
