@@ -3,62 +3,72 @@
       "name": "Goerli Testnet (Ethereum)",
       "MockTokenContract": {
           "address":"0x53cE04651834cD8db7bd618C0ce96B72aEA1bDf9",
-          "explorer": "https://goerli.etherscan.io"
+          "explorer": "https://goerli.etherscan.io",
+          "symbol": "MT"
         }
     },
     "97": {
         "name": "BNBChain Testnet",
         "MockTokenContract": {
           "address":"0x53cE04651834cD8db7bd618C0ce96B72aEA1bDf9",
-          "explorer": "https://testnet.bscscan.com/"
+          "explorer": "https://testnet.bscscan.com/",
+          "symbol": "MT"
         }
     },
     "80001": {
         "name": "Mumbai Testnet (Polygon)",
         "MockTokenContract": {
           "address":"0x53cE04651834cD8db7bd618C0ce96B72aEA1bDf9",
-          "explorer": "https://mumbai.polygonscan.com/"
+          "explorer": "https://mumbai.polygonscan.com/",
+          "symbol": "MT"
         }
     },
     "421611": {
         "name": "Arbitrum Rinkeby Testnet",
         "MockTokenContract": {
           "address":"0x53cE04651834cD8db7bd618C0ce96B72aEA1bDf9",
-          "explorer": "https://testnet.arbiscan.io/"
+          "explorer": "https://testnet.arbiscan.io/",
+          "symbol": "MT"
         }
     },
     "1287": {
         "name": "Moonbase Testnet",
         "MockTokenContract": {
           "address":"0x53cE04651834cD8db7bd618C0ce96B72aEA1bDf9",
-        "explorer": "https://moonbase.moonscan.io/"}
+          "explorer": "https://moonbase.moonscan.io/",
+          "symbol": "MT"
+       }
     },
     "43113": {
         "name": "Avalanche Fuji Testnet",
         "MockTokenContract": {
           "address":"0x53cE04651834cD8db7bd618C0ce96B72aEA1bDf9",
-          "explorer": "https://testnet.snowtrace.io"
+          "explorer": "https://testnet.snowtrace.io",
+          "symbol": "MT"
         }
     },
     "4002": {
         "name": "Fantom Testnet",
         "MockTokenContract": {
           "address":"0x53cE04651834cD8db7bd618C0ce96B72aEA1bDf9",
-          "explorer": "https://testnet.ftmscan.com/"
+          "explorer": "https://testnet.ftmscan.com/",
+          "symbol": "MT"
         }
     },
     "338": {
         "name": "CRO Testnet",
         "MockTokenContract": {
           "address":"0x53cE04651834cD8db7bd618C0ce96B72aEA1bDf9",
-          "explorer": "https://testnet.cronoscan.com"
+          "explorer": "https://testnet.cronoscan.com",
+          "symbol": "MT"
         }
     },
     "200101": {
         "name": "Milkomeda Testnet",
         "MockTokenContract": {
           "address":"0x53cE04651834cD8db7bd618C0ce96B72aEA1bDf9",
-          "explorer": "https://explorer-devnet-cardano-evm.c1.milkomeda.com"
+          "explorer": "https://explorer-devnet-cardano-evm.c1.milkomeda.com",
+          "symbol": "MT"
         }
     }
 }

@@ -1,0 +1,10 @@
+.intro-section {
+    text-align: center;
+    margin-top: -20%;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.intro-section > h2 {
+    font-weight: 700;
+    color:#495057;
+    font-size: 5em;
+}

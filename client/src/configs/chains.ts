@@ -51,7 +51,7 @@ const ftmTestChain: Chain = {
         default: {name:'FtmScan', url: "https://testnet.ftmscan.com/"}
     },
     testnet: true,
-    iconUrl:"https://assets.coingecko.com/coins/images/4001/small/Fantom.png?1558015016"
+    iconUrl:"https://s2.coinmarketcap.com/static/img/coins/64x64/3513.png"
 }
 const cronosTestChain: Chain = {
     id: 338,

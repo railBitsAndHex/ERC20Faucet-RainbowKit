@@ -1,0 +1,12 @@
+.mint-btn-sect {
+    margin-top: 15px;
+}
+.mint-btn {
+    border-radius: 10px;
+    height: 3.5em;
+    font-weight: 700;
+    background-color: #0a9396;
+}
+.mint-btn:hover{
+    background-color: #005f73;
+}
