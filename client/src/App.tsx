@@ -6,19 +6,26 @@ import { WagmiConfig } from "wagmi";
 import {
   RainbowKitProvider,
   darkTheme,
+  lightTheme,
   midnightTheme,
 } from "@rainbow-me/rainbowkit";
 import { wagmiClient, chains } from "./configs/config";
 import Intro from "./components/Intro";
 import Nvbar from "./components/Nvbar";
-
+import { useAccount } from "wagmi";
+import Centre from "./components/Centre";
 function App() {
   return (
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains} showRecentTransactions>
+      <RainbowKitProvider
+        chains={chains}
+        showRecentTransactions
+        theme={lightTheme()}
+      >
         <Nvbar />
         <section className="app-section">
           <Intro />
+          <Centre />
         </section>
       </RainbowKitProvider>
     </WagmiConfig>
