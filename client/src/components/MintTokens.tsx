@@ -1,9 +1,10 @@
-import React, { ReactNode, useEffect, useState } from "react";
-import { Button, Modal, Spinner } from "react-bootstrap";
-import "../styles/mintButton.modules.css";
+import { MouseEvent, useEffect, useState } from "react";
 import { useContractWrite } from "wagmi";
+import { Button } from "react-bootstrap";
+import { toast, ToastContainer } from "react-toastify";
 import mockTokenJson from "../chains/MockToken.json";
-import { GrStatusCritical, GrStatusGood } from "react-icons/gr";
+import "../styles/mintButton.modules.css";
+
 type mintProps = {
   address: string;
   tokenAddress: string;
@@ -11,105 +12,63 @@ type mintProps = {
 interface IProps {
   mintProps: mintProps;
 }
+
 function MintTokens(props: IProps) {
+  const [btnStyle, setBtnStyle] = useState({
+    backgroundColor: "#005f73",
+    fontWeight: "700",
+    height: "3.5em",
+    borderRadius: "10px",
+    border: "0px",
+  });
   const { address, tokenAddress }: mintProps = props.mintProps;
-  const [modal, setModal] = useState<ReactNode>(null);
-  const [show, setShow] = useState(false);
   const { abi } = mockTokenJson;
-  const { data, isError, isLoading, write, isSuccess } = useContractWrite(
+  const { isError, write, isSuccess, status } = useContractWrite(
     {
       addressOrName: tokenAddress,
       contractInterface: abi,
     },
     "mint"
   );
-  const handleClose = () => {
-    console.log("clicked");
-    setShow(false);
-    setModal(null);
-  };
   useEffect(() => {
-    if (isLoading) {
-      const modalLoading = (
-        <Modal
-          show={show}
-          onHide={handleClose}
-          backdrop="static"
-          keyboard={false}
-        >
-          <Modal.Body>
-            <section className="modal-body-sect">
-              <Spinner
-                className="modal-spinner"
-                animation="border"
-                variant="info"
-              />
-              <span className="modal-body-span">
-                Transaction is processing... Please wait a moment
-              </span>
-            </section>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={handleClose}>Close</Button>
-          </Modal.Footer>
-        </Modal>
-      );
-      setShow(true);
-      setModal(modalLoading);
-    } else if (isError) {
-      const modalError = (
-        <Modal
-          show={show}
-          onHide={() => handleClose()}
-          backdrop="static"
-          keyboard={false}
-        >
-          <Modal.Body>
-            <section className="modal-body-sect">
-              <GrStatusCritical />
-              <div>Transaction Failed</div>
-            </section>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={handleClose}>Close</Button>
-          </Modal.Footer>
-        </Modal>
-      );
-      setModal(modalError);
-      setShow(true);
-    } else if (isSuccess) {
-      console.log(isSuccess);
-      console.log(isLoading);
-      const modalSuccess = (
-        <Modal
-          show={show}
-          onHide={() => handleClose()}
-          backdrop="static"
-          keyboard={false}
-        >
-          <Modal.Body>
-            <section className="modal-body-sect">
-              <GrStatusGood />
-              <div>Transaction Success!</div>
-              <p>Successfully minted 10000 mockTokens.</p>
-            </section>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={() => handleClose()}>Close</Button>
-          </Modal.Footer>
-        </Modal>
-      );
-      setModal(modalSuccess);
-      setShow(true);
+    if (isError && status === "error") {
+      toast.error("Transaction Failed!", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 3000,
+        theme: "colored",
+        hideProgressBar: false,
+      });
+    } else if (isSuccess && status === "success") {
+      toast.success("Successfully minted 10000 mockTokens", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 3000,
+        theme: "dark",
+        hideProgressBar: false,
+      });
     }
-  }, [data, write, isError, isLoading, isSuccess]);
+  }, [write, isError, isSuccess, status]);
   return (
     <>
       <section className="mint-btn-sect">
-        <Button onClick={() => write()} className="mint-btn">
+        <Button
+          onClick={() => write()}
+          className="mint-btn"
+          onMouseEnter={(e: MouseEvent<HTMLButtonElement>) => {
+            e.preventDefault();
+            setBtnStyle({
+              ...btnStyle,
+              backgroundColor: "#0a9396",
+            });
+          }}
+          onMouseLeave={(e: MouseEvent<HTMLButtonElement>) => {
+            e.preventDefault();
+            setBtnStyle({ ...btnStyle, backgroundColor: "#005f73" });
+          }}
+          style={btnStyle}
+        >
           Mint mockTokens
         </Button>
-        {modal}
+        <ToastContainer />
       </section>
     </>
   );
