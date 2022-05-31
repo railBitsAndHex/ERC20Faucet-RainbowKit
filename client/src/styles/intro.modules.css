@@ -1,8 +1,10 @@
 .intro-section {
     text-align: center;
-    margin-top: -30%;
-    font-family: 'Secular One', sans-serif;
+    margin-top: -20%;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 .intro-section > h2 {
-    font-size: 7em;
+    font-weight: 700;
+    color:#495057;
+    font-size: 5em;
 }
