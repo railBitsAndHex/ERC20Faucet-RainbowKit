@@ -1,0 +1,8 @@
+.intro-section {
+    text-align: center;
+    margin-top: -30%;
+    font-family: 'Secular One', sans-serif;
+}
+.intro-section > h2 {
+    font-size: 7em;
+}
