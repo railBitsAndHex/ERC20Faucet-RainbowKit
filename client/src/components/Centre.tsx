@@ -1,9 +1,9 @@
-import React from "react";
 import { useConnect, useAccount } from "wagmi";
-import chainMappings from "../chains/mappings.json";
-import Balance from "./Balance";
 import { Spinner } from "react-bootstrap";
+import Balance from "./Balance";
+import chainMappings from "../chains/mappings.json";
 import "../styles/centre.modules.css";
+
 function Centre() {
   const { activeConnector, isConnecting } = useConnect();
   const account = useAccount();

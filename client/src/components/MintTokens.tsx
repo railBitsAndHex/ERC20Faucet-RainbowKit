@@ -1,9 +1,10 @@
 import { MouseEvent, useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import { useContractWrite } from "wagmi";
-import mockTokenJson from "../chains/MockToken.json";
+import { Button } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
+import mockTokenJson from "../chains/MockToken.json";
 import "../styles/mintButton.modules.css";
+
 type mintProps = {
   address: string;
   tokenAddress: string;
@@ -11,6 +12,7 @@ type mintProps = {
 interface IProps {
   mintProps: mintProps;
 }
+
 function MintTokens(props: IProps) {
   const [btnStyle, setBtnStyle] = useState({
     backgroundColor: "#005f73",

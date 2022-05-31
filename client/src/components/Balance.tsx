@@ -1,6 +1,7 @@
 import { useBalance } from "wagmi";
 import MintTokens from "./MintTokens";
 import "../styles/balance.modules.css";
+
 type balanceProps = {
   address: string;
   tokenAddress: string;
@@ -8,6 +9,7 @@ type balanceProps = {
 interface IProps {
   balanceProps: balanceProps;
 }
+
 function Balance(props: IProps) {
   const { address, tokenAddress } = props.balanceProps;
   const balance = useBalance({

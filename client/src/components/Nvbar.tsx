@@ -1,6 +1,6 @@
-import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import ConnectBtn from "./ConnectBtn";
+
 function Nvbar() {
   return (
     <>
