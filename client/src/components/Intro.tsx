@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/intro.modules.css";
-import MintTokens from "./MintTokens";
 function Intro() {
   return (
     <>

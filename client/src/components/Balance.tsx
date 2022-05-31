@@ -1,5 +1,3 @@
-import React from "react";
-import { Spinner } from "react-bootstrap";
 import { useBalance } from "wagmi";
 import MintTokens from "./MintTokens";
 import "../styles/balance.modules.css";
@@ -17,7 +15,6 @@ function Balance(props: IProps) {
     token: tokenAddress,
     watch: true,
   });
-  console.log(balance);
   if (balance.isError) {
     return (
       <>
@@ -36,7 +33,7 @@ function Balance(props: IProps) {
     };
     return (
       <>
-        <section>
+        <section className="balance-sect-1">
           <div>
             Wallet Balance: {balance.data?.formatted} {balance.data?.symbol}
           </div>

@@ -21,7 +21,7 @@ function MintTokens(props: IProps) {
   });
   const { address, tokenAddress }: mintProps = props.mintProps;
   const { abi } = mockTokenJson;
-  const { data, isError, write, isSuccess, status } = useContractWrite(
+  const { isError, write, isSuccess, status } = useContractWrite(
     {
       addressOrName: tokenAddress,
       contractInterface: abi,
@@ -44,7 +44,7 @@ function MintTokens(props: IProps) {
         hideProgressBar: false,
       });
     }
-  }, [write, fetch, isError, isSuccess, status]);
+  }, [write, isError, isSuccess, status]);
   return (
     <>
       <section className="mint-btn-sect">

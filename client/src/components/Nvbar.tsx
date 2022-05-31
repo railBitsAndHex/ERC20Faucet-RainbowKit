@@ -6,7 +6,7 @@ function Nvbar() {
     <>
       <Navbar>
         <Container>
-          <Navbar.Brand>THE ERC20 FAUCET</Navbar.Brand>
+          <Navbar.Brand>ERC20 FAUCET</Navbar.Brand>
           <Nav>
             <ConnectBtn />
           </Nav>

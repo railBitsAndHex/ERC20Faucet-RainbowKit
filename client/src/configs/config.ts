@@ -1,5 +1,4 @@
-import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
-import { connectorsForWallets, wallet } from "@rainbow-me/rainbowkit";
+import { chain, configureChains, createClient, } from "wagmi";
 import { getDefaultWallets } from "@rainbow-me/rainbowkit";
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import {jsonRpcProvider} from 'wagmi/providers/jsonRpc'

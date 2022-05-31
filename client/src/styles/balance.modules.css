@@ -19,3 +19,9 @@
 .modal-body-span{
     margin-top: 20px;
 }
+.balance-sect-1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
