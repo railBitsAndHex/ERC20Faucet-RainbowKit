@@ -9,7 +9,7 @@
 ___
   
   This repository contains code for a simple ERC20 token faucet that is developed with the help of [RainbowKit](https://www.rainbowkit.com/) and [WAGMI](https://wagmi.sh/). The token faucet is deployed/ deployable on multiple different EVM-compatible chains **(deployed on testnet only)**. 
-  They can also be found on `client/src/configs/chains.ts` or `client/src/chains/
+  They can also be found on `client/src/configs/chains.ts` or `client/src/chains/` 
 
 ### Deployed Chains and contract addresses
 
@@ -30,6 +30,21 @@ ___
 
 ````
 git clone https://github.com/railBitsAndHex/ERC20Faucet-RainbowKit.git
+````
+
+**Installing client side packages**  
+
+Open an instance of the terminal (for my case I use VSCode terminal)
+````
+cd client
+yarn add
+````
+**Installing contract related packages (E.g. Hardhat)**  
+
+Open an instance of the terminal (for my case I use VSCode terminal)
+````
+cd contracts
+yarn add
 ````
 
 **Client Side Start Up**
