@@ -7,7 +7,7 @@
 2. It is recommended to use a wallet which **DOES NOT** contains **ANY REAL FUNDS/ MONEY** if you were to clone/ fork this repository for testing purposes.
 
 ___
-  
+  ![Alt Text](client/homepage.png)
   This repository contains code for a simple ERC20 token faucet that is developed with the help of [RainbowKit](https://www.rainbowkit.com/) and [WAGMI](https://wagmi.sh/). The token faucet is deployed/ deployable on multiple different EVM-compatible chains **(deployed on testnet only)**. 
   They can also be found on `client/src/configs/chains.ts` or `client/src/chains/` 
 
